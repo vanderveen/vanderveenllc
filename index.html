@@ -75,6 +75,16 @@
  
 		</div>
 		
+		
+		<div id="lastpage" style="display:none">
+			<footer style="position:absolute; bottom:0px; left: 0; width: 100%; text-align: center; z-index:100">
+				<small style="color:#707070; font-size:45%">
+					side made using the wonderful <a href="https://github.com/hakimel/reveal.js/">reveal.js</a>
+				</small>
+			</footer>
+		</div>
+		
+			
     </div>
 	
 	
@@ -86,9 +96,88 @@
         Reveal.initialize({
 			transition: 'linear',
 			progress: false,
-			rollingLinks: false,
+			//rollingLinks: false,
 			history:true,
         });
+	</script>
+	
+	<!-- some custom js additions... -->
+	<script>
+		
+		// the footer link is outside the slides class (SLIDES_SELECTOR), so normally gets missed
+		// here we re-run the rolling links code to apply to all links, not just those in SLIDES_SELECTOR
+        function enableRollingFooterLinks() {
+		
+			supports3DTransforms =  'WebkitPerspective' in document.body.style ||
+									'MozPerspective' in document.body.style ||
+									'msPerspective' in document.body.style ||
+									'OPerspective' in document.body.style ||
+									'perspective' in document.body.style;
+			
+			if( supports3DTransforms && !( 'msPerspective' in document.body.style ) ) {
+				var anchors = document.querySelectorAll( ' a:not(.image)' );
+
+				for( var i = 0, len = anchors.length; i < len; i++ ) {
+					var anchor = anchors[i];
+
+					if( anchor.textContent && !anchor.querySelector( '*' ) && ( !anchor.className || !anchor.classList.contains( anchor, 'roll' ) ) ) {
+						
+						var span = document.createElement('span');
+						span.setAttribute('data-title', anchor.text);
+						span.innerHTML = anchor.innerHTML;
+
+						anchor.classList.add( 'roll' );
+						anchor.innerHTML = '';
+						anchor.appendChild(span);
+					}
+				}
+			}
+        }
+		
+		
+		// disable rolling links on email links
+        function disableRollingEmailLinks() {
+
+			var SLIDES_SELECTOR = '.reveal .slides section';
+			var anchors = document.querySelectorAll( SLIDES_SELECTOR + ' a.roll' );
+
+			for( var i = 0, len = anchors.length; i < len; i++ ) {
+				var anchor = anchors[i];
+				var span = anchor.querySelector( 'span' );
+
+				// here we assume if @ is in the html, it must be an email
+				if (anchor.innerHTML.indexOf('@') !== -1) {
+					if( span ) {
+						anchor.classList.remove( 'roll' );
+						anchor.innerHTML = span.innerHTML;
+					}
+				}
+			}
+        }
+		
+		
+		// fires on every slide transition 
+		Reveal.addEventListener( 'slidechanged', function( event ) {
+			// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+			if (event.indexh == 5)
+				document.getElementById('lastpage').style.display = '';
+			else
+				document.getElementById('lastpage').style.display = 'none';
+		} );
+		
+		// run once at start
+		function customExtraSetup() {
+			enableRollingFooterLinks();
+			disableRollingEmailLinks();
+			
+			if (Reveal.getIndices().h == 5)  // horizontal slide number
+				document.getElementById('lastpage').style.display = '';
+			else
+				document.getElementById('lastpage').style.display = 'none';
+		}
+		
+		customExtraSetup();
+		
 	</script>
 	
 </body>
