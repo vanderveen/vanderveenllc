@@ -22,9 +22,9 @@
             <!-- ALL SLIDES GO HERE -->
             <!-- Each section element contains an individual slide -->
 			
-            <section>
+			<section>
 				<h2>Vander Veen LLC</h2>
-                <p><em>
+				<p><em>
 					Creating customer value through technology,<br>
 					automation, and <a href="#/4">compressed value streams</a>.
 				</em></p>
@@ -32,10 +32,13 @@
             </section>
  
  
-            <section>
-                <h3>Objective</h3>
-                <p>Provide machining and related services to casting companies which provide better product value and lower cost than their current supply base.</p>
-            </section>
+			<section>
+				<h3>Objective</h3>
+				<p>
+					Provide machining and related services to casting companies which provide 
+					better product value and lower cost than their current supply base.
+				</p>
+			</section>
 			
 			
             <section>
@@ -68,10 +71,10 @@
 			</section>
 			
 			
-            <section>
-                <h3>More information</h3>
+			<section>
+				<h3>More information</h3>
 				<h4><a href="mailto:vanderveenllc@gmail.com">vanderveenllc@gmail.com</a></h4>
-            </section>
+			</section>
  
 		</div>
 		
@@ -83,22 +86,22 @@
 				</small>
 			</footer>
 		</div>
-		
-			
-    </div>
-	
-	
-    <script src="lib/js/head.min.js"></script>
-    <script src="js/reveal.min.js"></script>
+
+
+	</div>
+
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.min.js"></script>
  
-    <script>
-        // Required, even if empty.
-        Reveal.initialize({
+	<script>
+		// Required, even if empty.
+		Reveal.initialize({
 			transition: 'linear',
 			progress: false,
 			//rollingLinks: false,
 			history:true,
-        });
+		});
 	</script>
 	
 	<!-- some custom js additions... -->
@@ -106,7 +109,7 @@
 		
 		// the footer link is outside the slides class (SLIDES_SELECTOR), so normally gets missed
 		// here we re-run the rolling links code to apply to all links, not just those in SLIDES_SELECTOR
-        function enableRollingFooterLinks() {
+		function enableRollingFooterLinks() {
 		
 			supports3DTransforms =  'WebkitPerspective' in document.body.style ||
 									'MozPerspective' in document.body.style ||
@@ -120,7 +123,8 @@
 				for( var i = 0, len = anchors.length; i < len; i++ ) {
 					var anchor = anchors[i];
 
-					if( anchor.textContent && !anchor.querySelector( '*' ) && ( !anchor.className || !anchor.classList.contains( anchor, 'roll' ) ) ) {
+					if( anchor.textContent && !anchor.querySelector( '*' ) && 
+					    ( !anchor.className || !anchor.classList.contains( anchor, 'roll' ) ) ) {
 						
 						var span = document.createElement('span');
 						span.setAttribute('data-title', anchor.text);
