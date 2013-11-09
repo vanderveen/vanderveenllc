@@ -14,29 +14,35 @@
 <body>
     <!-- Wrap the entire slide show in a div using the "reveal" class. -->
     <div class="reveal">
+	
+			
         <!-- Wrap all slides in a single "slides" class -->
         <div class="slides">
  
             <!-- ALL SLIDES GO HERE -->
             <!-- Each section element contains an individual slide -->
+			
             <section>
 				<h2>Vander Veen LLC</h2>
-                <p><em>Creating customer value through technology,<br>automation, and compressed value streams.</em></p>
-				<p><a href="http://www.vanderveenllc.com">www.vanderveenllc.com</a><p>
+                <p><em>
+					Creating customer value through technology,<br>
+					automation, and <a href="#/4">compressed value streams</a>.
+				</em></p>
+				<p><a class="" href="mailto:vanderveenllc@gmail.com">vanderveenllc@gmail.com</a></p>
             </section>
+ 
  
             <section>
                 <h3>Objective</h3>
                 <p>Provide machining and related services to casting companies which provide better product value and lower cost than their current supply base.</p>
-                <!-- <p>See <a href="http://www.htmlcheats.com">HTMLCheats.com</a><p> -->
             </section>
-			
 			
 			
             <section>
 				<h3>Vander Veen LLC's</h3>
 				<h3>Competative Advantage</h3>
 				<h4>Focus on high-speed automated equipment performing simple machining operations</h4>
+				<div style="margin-left:15%; width:80%">
 				<ul>
 					<li>30 Taper drill and tap machines</li>
 					<li>Integrate secondary operations into machining cells with future robot loading and unloading</li>
@@ -47,27 +53,31 @@
 						</ul>
 					</li>
 				</ul>
+				</div>
 			</section>
  
-            <section>
-                <h3>Current value stream for typical machined castings</h3>
-				<img src="image1.png"></img>
-            </section>
+ 
+			<section data-transition="none">
+				<h3>Current value stream for typical machined castings</h3>
+				<img style="border:none; box-shadow:none" src="value stream1.png"></img>
+			</section>
 			
-            <!-- <section data-transition="none -->
-            <section>
-                <h3>Future value stream for typical machined castings</h3>
-				<img src="image2.png"></img>
-            </section>
+			<section data-transition="none">
+				<h3>Future value stream for typical machined castings</h3>
+				<img style="border:none; box-shadow:none" src="value stream2.png"></img>
+			</section>
+			
 			
             <section>
                 <h3>More information</h3>
-				<p><a href="http://www.vanderveenllc.com">www.vanderveenllc.com</a><p>
-				<p><a href="mailto:vanderveenllc@gmail.com">email us</a><p>
+				<h4><a href="mailto:vanderveenllc@gmail.com">vanderveenllc@gmail.com</a></h4>
             </section>
  
-            </div>
+		</div>
+		
     </div>
+	
+	
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.min.js"></script>
  
@@ -75,7 +85,11 @@
         // Required, even if empty.
         Reveal.initialize({
 			transition: 'linear',
+			progress: false,
+			rollingLinks: false,
+			history:true,
         });
-    </script>
+	</script>
+	
 </body>
 </html>
